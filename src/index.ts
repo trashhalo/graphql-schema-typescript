@@ -6,7 +6,7 @@ import { TSResolverGenerator, GenerateResolversResult } from './typescriptResolv
 import { TypeScriptGenerator } from './typescriptGenerator';
 import { formatTabSpace, introspectSchema, introspectSchemaViaLocalFile } from './utils';
 import { isString } from 'util';
-import { IntrospectionQuery } from 'graphql/utilities/introspectionQuery';
+import { IntrospectionQuery } from 'graphql';
 
 export { GenerateTypescriptOptions } from './types';
 

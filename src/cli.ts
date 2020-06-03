@@ -102,21 +102,21 @@ yargs
             const { folderPath, output } = argv;
 
             const options: GenerateTypescriptOptions = {};
-            options[globalOpt] = argv[globalOpt];
-            options[typePrefix] = argv[typePrefix];
-            options[namespaceOpt] = argv[namespaceOpt];
-            options[miminizeInterface] = argv[miminizeInterface];
-            options[contextType] = argv[contextType];
-            options[importStatements] = argv[importStatements];
-            options[strictNulls] = argv[strictNulls];
-            options[smartTResult] = argv[smartTResult];
-            options[smartTParent] = argv[smartTParent];
-            options[asyncResult] = argv[asyncResult];
-            options[requireResolverTypes] = argv[requireResolverTypes];
-            options[noStringEnum] = argv[noStringEnum];
-            options[optionalResolverInfo] = argv[optionalResolverInfo];
+            options[globalOpt] = argv[globalOpt] as boolean;
+            options[typePrefix] = argv[typePrefix] as string;
+            options[namespaceOpt] = argv[namespaceOpt] as string;
+            options[miminizeInterface] = argv[miminizeInterface] as boolean;
+            options[contextType] = argv[contextType] as string;
+            options[importStatements] = argv[importStatements] as string[];
+            options[strictNulls] = argv[strictNulls] as boolean;
+            options[smartTResult] = argv[smartTResult] as boolean;
+            options[smartTParent] = argv[smartTParent] as boolean;
+            options[asyncResult] = argv[asyncResult] as boolean;
+            options[requireResolverTypes] = argv[requireResolverTypes] as boolean;
+            options[noStringEnum] = argv[noStringEnum] as boolean;
+            options[optionalResolverInfo] = argv[optionalResolverInfo] as boolean;
 
-            await generateTypeScriptTypes(folderPath, path.resolve(output), options);
+            await generateTypeScriptTypes(folderPath as string, path.resolve(output as string), options);
             if (process.env.NODE_ENV !== 'test') {
                 console.log(`Typescript generated at: ${output}`);
             }

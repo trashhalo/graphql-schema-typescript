@@ -4,12 +4,12 @@ import {
     graphql,
     buildASTSchema,
     parse,
-    introspectionQuery,
     GraphQLSchema,
     IntrospectionQuery,
     IntrospectionField,
-    IntrospectionInputValue
+    IntrospectionInputValue,
 } from 'graphql';
+import { getIntrospectionQuery } from 'graphql/utilities';
 import {
     camelCase
 } from 'lodash';
@@ -18,7 +18,7 @@ import {
  * Send introspection query to a graphql schema
  */
 export const introspectSchema = async (schema: GraphQLSchema): Promise<IntrospectionQuery> => {
-    const { data, errors } = await graphql(schema, introspectionQuery);
+    const { data, errors } = await graphql(schema, getIntrospectionQuery());
 
     if (errors) {
         throw errors;
